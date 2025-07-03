@@ -49,6 +49,66 @@
 - User preference onboarding steps  
 
 ---
+```
+
+|── bot/                         # Telegram bot logic
+│   ├── commands/               # Command handlers (e.g., /start, /set)
+│   │   ├── start.py
+│   │   ├── subscribe.py
+│   │   └── resume_review.py
+│   ├── messages/               # Bot responses & UI messages
+│   │   └── messages.py
+│   ├── inline/                 # Inline buttons/callback handlers
+│   │   └── job_actions.py
+│   ├── main.py                 # Entry point: bot setup and polling/webhook
+│   └── dispatcher.py           # Register handlers and middlewares
+│
+├── scraper/                    # Job scraper modules
+│   ├── base_scraper.py         # Abstract base class
+│   ├── indeed_scraper.py       # Scrape Indeed
+│   ├── remoteok_scraper.py     # Scrape RemoteOK
+│   └── job_post_model.py       # Standard job posting data model
+│
+├── ai/                         # AI logic and integrations
+│   ├── matcher.py              # Match jobs to user profile using embeddings
+│   ├── summarizer.py           # Summarize job descriptions (GPT or LLM)
+│   ├── resume_reviewer.py      # Review resumes and give feedback
+│   └── cover_letter_gen.py     # Generate cover letters
+│
+├── models/                     # Data models and schemas
+│   ├── user.py                 # User model: preferences, resume, etc.
+│   └── job.py                  # Job model for DB/storage
+│
+├── services/                   # Core logic and business rules
+│   ├── job_service.py          # Fetch, cache, rank jobs
+│   ├── user_service.py         # Manage user prefs, state
+│   └── ai_service.py           # Interface between AI & bot
+│
+├── database/                   # DB setup & CRUD
+│   ├── db.py                   # Connect to MongoDB/Supabase/PostgreSQL
+│   ├── crud_user.py
+│   ├── crud_job.py
+│   └── schema.sql              # Optional SQL schema if using RDBMS
+│
+├── scheduler/                  # Periodic tasks and cron jobs
+│   └── job_dispatcher.py       # Send daily job alerts to users
+│
+├── config/                     # App configuration and secrets
+│   ├── settings.py             # Env vars and global config
+│   └── telegram_keys.env
+│
+├── tests/                      # Unit and integration tests
+│   ├── test_scraper.py
+│   ├── test_ai.py
+│   └── test_bot_commands.py
+│
+├── requirements.txt            # Python dependencies
+├── .env.example                # Template for environment variables
+├── README.md                   # Project overview and setup
+└── run.py                      # Main entry (start bot, schedule, etc.)
+
+```
+---
 
 ## 🔧 Installation & Development
 
@@ -58,3 +118,4 @@ cd SiraFinder
 cp .env.example .env   # Fill in your keys
 pip install -r requirements.txt
 python run.py
+```

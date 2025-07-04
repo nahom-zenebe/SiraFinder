@@ -15,8 +15,7 @@ def scrape_remoteok():
             description=post.get_text(),
             location="Remote",
             tags=["remote", "tech"]
-            source=post[""],
-            salary=post[""],
+          
         
         ))
     return jobs

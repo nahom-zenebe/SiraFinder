@@ -1,5 +1,5 @@
-from services.job_service import refresh_jobs
-from ai.summerizer import summarize_job
+from scraper.job_service import refresh_jobs
+from ai.summarizer import summarize_job
 
 
 

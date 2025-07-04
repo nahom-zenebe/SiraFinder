@@ -1,4 +1,6 @@
-# ai/resume_reviewer.py
+
+import os
+
 def review_resume(resume_text: str) -> str:
     response = openai.ChatCompletion.create(
         model="gpt-4",

@@ -1,6 +1,6 @@
 from telegram import Bot
 from database.db import users_col, jobs_col
-from services.job_service import refresh_jobs
+from scraper.job_service import refresh_jobs
 from ai.summarizer import summarize_job
 import os
 
